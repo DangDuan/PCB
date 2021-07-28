@@ -3,10 +3,10 @@ SerialCommand SCmd;
 #define BLYNK_PRINT Serial
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
-char auth[] = "ON5ptYBeEMH8lyw2sytZ_Jm22IYx60aS";
-char ssid[] = "netis_C01178";
+char auth[] = "id blynk";
+char ssid[] = "id wifi";
 char pass[] = "password";
-int val;                                           //giá trị nhận từ arduino
+int val;                                 
 void setup() 
 {
   Serial.begin(9600); 
@@ -17,7 +17,6 @@ void setup()
 void loop() 
 { Blynk.run();
   SCmd.readSerial();
-Blynk.virtualWrite(V1,val);                      // gửi lên blynk
-}
+Blynk.virtualWrite(V1,val);                  
 
 void DATA(){ char*arg; arg = SCmd.next();val=atoi(arg);} 
